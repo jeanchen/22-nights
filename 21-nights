@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<!--
+
+  This theme borrows parts from Untitled Themes themes (http://www.untitledthemes.com), Level82 claims no ownership or credit for this or any Level82 theme.
+
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{Title}{block:SearchPage} | {SearchQuery}{/block:SearchPage}{block:PostSummary} | {PostSummary}{/block:PostSummary}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
+<meta name="image:Background" content="" />
+<meta name="image:Header" content="" />
+<meta name="color:Background" content="#FFFFFF" />
+<meta name="text:Blog title size" content="75px" />
+<meta name="if:Infinite scroll" content="1" />
+<meta name="color:Body text" content="#000000" />
+<meta name="color:Blog title" content="#000000" />
+<meta name="if:Show Description" content="1" />
+<meta name="text:Visitor counter script" content="" />
+<meta name="text:Music player script" content="" />
+<meta name="if:Repeat background" content="1" />
+<meta name="if:Center background" content="1" />
+<meta name="if:Fixed background" content="0" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://static.tumblr.com/jw8fmba/JuPmhkses/theme.js"></script>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Pompiere);
+html,body {
+	margin: 0;
+	font-size: 13px;
+	line-height: 160%;
+	height: 100%;
+}
+* {
+	font-family: Helvetica, Arial, sans-serif;
+	color: {color:Body text};
+}
+a img {
+	border: none;
+}
+a {
+	color: inherit;
+	font-size: inherit;
+}
+em,em a,a em {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+}
+blockquote {
+	margin: 0;
+	padding: 0 0 0 9px;
+	border-left: 1px #CCC dotted;
+}
+.header {
+	position: relative;
+	width: 100%;
+	margin: 50px 0 25px 0;
+	text-align: center;
+}
+.header a {
+	text-decoration: none;
+}
+.header img {
+	max-width: 100%;
+}
+.header .title h1 {
+	margin: 0;
+	line-height: 100%;
+	font-family: 'Pompiere', cursive;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: {text:Blog title size};
+	color: {color:Blog title};
+}
+.header p {
+	margin: 5px 0;
+}
+.header .menu_item {
+	margin: 0 10px;
+	opacity: 0.5;
+	-webkit-transition: all 0.25s ease;
+	-moz-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+.header .menu_item:hover {
+	opacity: 1;
+}
+.posts {
+	position: relative;
+	margin: 25px auto;
+	{block:PermalinkPage}
+	width: 510px;
+	{/block:PermalinkPage}
+}
+.post {
+	float: left;
+	position: relative;
+	margin: 5px;
+}
+.post h2 {
+	margin: 0;
+	font-size: 18px;
+	line-height: 20px;
+	{block:PermalinkPage}
+	text-align: center;
+	{/block:PermalinkPage}
+}
+.post h2.quote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-weight: normal;
+}
+.post p,.post li {
+	line-height: 175%;
+}
+.post p {
+	margin: 10px 0 5px 0;
+}
+.post ol,.post ul {
+	margin: 3px 0;
+	padding: 0;
+}
+.post li {
+	margin: 2px 35px;
+}
+.post .info_bar {
+	width: 100%;
+	padding: 1px 0;
+	text-align: center;
+	position: absolute;
+	top: 90%;
+	left: 0;
+	font-size: 11px;
+	opacity: 0;
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+	background: {color:Body text};
+	color: {color:Background};
+	{block:PermalinkPage}
+	display: none;
+	{/block:PermalinkPage}
+}
+.post:hover .info_bar {
+	opacity: .9;
+}
+.post .info_bar a {
+	text-decoration: none;
+	margin: 0 5px;
+}
+.post .photo {
+	position: relative;
+	padding: 0;
+	line-height: 0 !important;
+	{block:IndexPage}
+	background: {color:Body text};
+	{/block:IndexPage}
+}
+.post .photo .photo_info {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	margin: -35px 0 0 0;
+	text-align: center;
+	z-index: 10;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	{block:PermalinkPage}
+	display: none;
+	{/block:PermalinkPage}
+}
+.post:hover .photo .photo_info {
+	opacity: 1;
+}
+.post .photo .photo_info a {
+	text-decoration: none;
+	color: {color:Background};
+}
+.post .photo .photo_info h2 a {
+	margin: 0;
+	line-height: 100%;
+	text-transform: uppercase;
+	font-size: 50px;
+}
+.post .photo .photo_info p {
+	margin: 0;
+}
+.post .photo .photo_info p a {
+	margin: 0;
+	line-height: 100%;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: bold;
+}
+.post img.main_photo {
+	width: 100%;
+}
+.post img {
+	max-width: 100%;
+	height: auto;
+}
+.post .photo img {
+	opacity: 1;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	margin: 0;
+	line-height: 0;
+}
+.post:hover .photo img {
+	{block:IndexPage}
+	opacity: 0.25;
+	{/block:IndexPage}
+}
+.post .player {
+	padding: 2px 10px;
+	background: #FFF;
+	margin: 0;
+}
+.post .lines {
+	margin: 0 0 5px 0;
+}
+.post .lines .line {
+	padding: 10px;
+}
+.post .lines .odd {
+}
+.post .lines .even {
+	background: {color:Body text};
+	color: {color:Background};
+}
+.post .lines .even * {
+	color: {color:Background};
+}
+.post ol.notes {
+	padding: 0;
+	list-style-type: none;
+	font-size: 11px;
+}
+.post ol.notes a {
+	text-decoration: none;
+}
+.post ol.notes li.note {
+	border-top: solid 1px {color:Body text};
+	padding: 5px 0;
+	margin: 0 !important;
+}
+.post ol.notes li.note img.avatar {
+	vertical-align: -4px;
+	margin-right: 10px;
+	width: 16px;
+	height: 16px;
+}
+.post ol.notes li.note .answer_content {
+	font-weight: normal;
+}
+.post ol.notes li.note blockquote {
+	border-color: {color:Body text};
+	padding: 4px 10px;
+	margin: 10px 0px 0px 25px;
+}
+.pagination {
+	display: none;
+}
+#infscr-loading {text-align: center;position: fixed;left: 45%;bottom: 50px;z-index: 999;background: #FFF;opacity: 0.75;padding: 5px 10px 2px 10px;-moz-border-radius: 6px;-webkit-border-radius: 6px;border-radius: 6px;}
+.masonry,.masonry .masonry-brick {-webkit-transition-duration: 0.25s;-moz-transition-duration: 0.25s;-o-transition-duration: 0.25s;transition-duration: 0.25s;}.masonry {-webkit-transition-property: height, width;-moz-transition-property: height, width;-o-transition-property: height, width;transition-property: height, width;}.masonry .masonry-brick {-webkit-transition-property: left, right, top;-moz-transition-property: left, right, top;-o-transition-property: left, right, top;transition-property: left, right, top;}
+body{background:url({image:Background}) {color:Background} {block:IfFixedBackground}fixed{/block:IfFixedBackground} {block:IfNotRepeatBackground}no-repeat{/block:IfNotRepeatBackground} {block:IfCenterBackground}center 0{/block:IfCenterBackground}}.small{width:{block:IndexPage}245{/block:IndexPage}{block:PermalinkPage}500{/block:PermalinkPage}px}.large{width:{block:IndexPage}500{/block:IndexPage}{block:PermalinkPage}500{/block:PermalinkPage}px}
+{CustomCSS}
+</style>
+
+</head>
+
+<body class="{Name}" data-theme-network="level82" data-theme-id="33034">
+
+	{block:Pagination}<ul class="pagination">
+        	<li>{block:NextPage}<a href="{NextPage}" class="pagination_nextlink">Next</a>{/block:NextPage}</li>
+    </ul>{/block:Pagination}
+
+	<div class="header">
+    
+    	<a class="title" href="/">{block:IfHeaderImage}<img src="{image:Header}" />{/block:IfHeaderImage}{block:IfNotHeaderImage}<h1>{Title}</h1>{block:IfNotHeaderImage}</a>
+        {block:IfShowDescription}{block:Description}<p>{Description}</p>{/block:Description}{/block:IfShowDescription}
+        <p>{block:AskEnabled}<a class="menu_item" href="/ask">{AskLabel}</a>/{/block:AskEnabled}{block:SubmitEnabled}<a class="menu_item" href="/submit">{SubmitLabel}</a>/{/block:SubmitEnabled}{block:HasPages}{block:Pages}<a class="menu_item" href="{URL}">{Label}</a>/{/block:Pages}{/block:HasPages}{block:IfNotInfiniteScroll}{block:Pagination}{block:PreviousPage}<a href="{PreviousPage}">{lang:Previous page}</a>/{/block:PreviousPage}{block:NextPage}<a href="{NextPage}">{lang:Next page}</a>/{/block:NextPage}{/block:Pagination}{/block:IfNotInfiniteScroll}<a class="menu_item" href="/archive">{lang:Archive}</a>/<a class="menu_item" href="{RSS}">{lang:RSS}</a>{block:IfVisitorCounterScript}/<span class="menu_item">{text:Visitor counter script}</span>{/block:IfVisitorCounterScript}</p>
+    
+    </div>
+
+    <div class="posts">    
+    	{block:Posts}
+        <div class="post {block:Photo}{block:Post1}large{/block:Post1}{block:Post2}small{/block:Post2}{block:Post3}small{/block:Post3}{block:Post4}small{/block:Post4}{block:Post5}small{/block:Post5}{block:Post6}small{/block:Post6}{block:Post7}small{/block:Post7}{block:Post8}large{/block:Post8}{block:Post9}large{/block:Post9}{block:Post10}large{/block:Post10}{block:Post11}small{/block:Post11}{block:Post12}small{/block:Post12}{block:Post13}large{/block:Post13}{block:Post14}small{/block:Post14}{block:Post15}small{/block:Post15} {/block:Photo}{block:Text}small {/block:Text}{block:Quote}small {/block:Quote}{block:Link}small {/block:Link}{block:Chat}small {/block:Chat}{block:Audio}small {/block:Audio}{block:Answer}small {/block:Answer}{block:Video}large {/block:Video}{block:Photoset}large {/block:Photoset}{block:IfInfiniteScroll}load{/block:IfInfiniteScroll}" id="post_{PostID}">{block:Text}{block:Title}<h2>{Title}</h2>{/block:Title}{Body}{block:More}<h3><a href="{Permalink}">{lang:Read more}</a></h3>{/block:More}{/block:Text}{block:Answer}<p><strong>{lang:Asker asked}: {Question}</strong></p><p>{Answer}</p>{/block:Answer}{block:Chat}{block:Title}<h2>{Title}</h2>{/block:Title}<div class="lines">{block:Lines}<div class="line {Alt}">{block:Label}{Label}{/block:Label} <em>{Line}</em></div>{/block:Lines}</div>{/block:Chat}{block:Quote}<h2 class="quote">"{Quote}"</h2>{block:Source}<p>- {Source}</p>{/block:Source}{/block:Quote}{block:Link}<h2><a href="{URL}" {Target}>{Name}</a></h2>{block:Description}{Description}{/block:Description}{/block:Link}{block:Photo}<div class="photo"><div class="photo_info"><h2><a href="{Permalink}">{NoteCount}</a></h2><p><a href="{ReblogURL}?redirect_to={URLEncodedPermalink}">Reblog</a></p></div>{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" class="main_photo" />{LinkCloseTag}</div>{block:PermalinkPage}{block:Caption}{Caption}{/block:Caption}{/block:PermalinkPage}{/block:Photo}{block:Photoset}{Photoset-500}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Video}{Video-500}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Audio}{block:AlbumArt}<a href="{Permalink}"><img src="{AlbumArtURL}" class="main_photo" /></a>{/block:AlbumArt}<div class="player">{AudioPlayerWhite}</div>{block:Caption}{Caption}{/block:Caption}{/block:Audio}
+        
+        	{block:Date}<div class="info_bar" {block:Photo}style="display: none"{/block:Photo}>{block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a> / {/block:NoteCount}<a href="{Permalink}">{TimeAgo}</a> / <a href="{ReblogURL}?redirect_to={URLEncodedPermalink}">Reblog</a></div>{/block:Date}
+        </div>
+        
+        
+        {block:PostNotes}<div class="post large" style="padding-top: 10px">
+        	{PostNotes}
+        </div>{/block:PostNotes}
+        
+        
+        {/block:Posts}
+    
+    </div>
+    
+    {text:Music player script}
+    
+{block:IndexPage}
+<script type="text/javascript">
+$(function(){var $container = $('.posts').css({ opacity: 0 });$container.imagesLoaded(function(){$container.animate({ opacity: 1 });$container.masonry({itemSelector:'.post',isFitWidth: true,columnWidth: 255});});$container.infinitescroll({navSelector:'.pagination',nextSelector:'.pagination li a.pagination_nextlink',itemSelector: '.load',loading: {img:'http://static.tumblr.com/jw8fmba/NRWlvha2e/loady.gif',donetext:''}},function( newElements ) { var $newElems = $( newElements ).css({ opacity: 0 });$newElems.imagesLoaded(function(){$newElems.animate({ opacity: 1 });$container.masonry( 'appended', $newElems, true );});});});
+</script>
+{/block:IndexPage}
+</body>
+</html>
